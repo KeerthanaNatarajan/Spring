@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+<bean id = "marksObject" class = "sample.spring.practice.Marks"/>
+ 
+<bean id = "student" class = "sample.spring.practice.Student">
+	<!-- <property name="name" value="Keerthana"></property>
+	<property name ="id" value="140094"></property> -->
+	
+	<constructor-arg name="name" value="Keerthana"></constructor-arg>
+	<constructor-arg name ="id" value="1412094"></constructor-arg>
+	<property name="marks">
+		<bean class = "sample.spring.practice.Marks">
+			<!-- <property name="maths" value = "96"></property>
+			<property name="physics" value = "98"></property>
+			<property name="chemistry" value = "100"></property> -->
+		</bean>	
+	</property>
+	
+</bean>
+
+<bean id = "studentTwo" class = "sample.spring.practice.StudentTwo">
+	<property name = "marks" ref = "marksObject"/>
+		<!-- <property name="maths" value = "98"></property>
+		<property name="physics" value = "94"></property>
+		<property name="chemistry" value = "100"></property> -->
+</bean>
+
+<bean id = "studentThree" class = "sample.spring.practice.StudentThree">
+	<property name = "marks" ref = "marksObject"/>
+		<!-- <property name="maths" value = "100"></property>
+		<property name="physics" value = "90"></property>
+		<property name="chemistry" value = "100"></property> -->
+</bean>
+</beans>
